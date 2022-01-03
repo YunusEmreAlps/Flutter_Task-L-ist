@@ -27,7 +27,7 @@ class Todo {
   }
 
   set priority(int newPriority) {
-    if (newPriority >= 0 && newPriority <= 3) {
+    if (newPriority >= 0 && newPriority <= 4) {
       _priority = newPriority;
     }
   }

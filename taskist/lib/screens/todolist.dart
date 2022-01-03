@@ -1,7 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:taskist/model/todo.dart';
-import 'package:taskist/util/dbhelper.dart';
 import 'package:taskist/screens/tododetail.dart';
+import 'package:taskist/util/app_constant.dart';
+import 'package:taskist/util/dbhelper.dart';
 
 class TodoList extends StatefulWidget {
   @override
@@ -24,11 +28,11 @@ class TodoListState extends State {
         child: todoListItems(),
       ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Color(0xFFE11E3C),
+          backgroundColor: AppConstant.colorPrimary,
           onPressed: () {
             navigateToDetail(Todo('', 3, ''));
           },
-          tooltip: "Add new Todo",
+          tooltip: "Add new Task",
           child: new Icon(
             Icons.add,
             color: Colors.white,
@@ -91,20 +95,18 @@ class TodoListState extends State {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0)),
                   color: Colors.white,
+                  shadowColor: Color(0xFFB0CCE1).withOpacity(0.32),  // Change this 
                   elevation: 0.0,
                   child: ListTile(
                     // TODO: Find the way to align this avatar to top left corner
                     leading: Padding(
-                      padding: const EdgeInsets.only(left: 17.0),
+                      padding: const EdgeInsets.only(left: 15.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           CircleAvatar(
                             radius: 7.0,
                             backgroundColor: getColor(todos[position].priority),
-                          ),
-                          SizedBox(
-                            height: 57.0,
                           ),
                         ],
                       ),
@@ -182,17 +184,20 @@ class TodoListState extends State {
   Color getColor(int priority) {
     switch (priority) {
       case 1:
-        return Colors.red;
+        return AppConstant.colorPriorityUrgent;
         break;
       case 2:
-        return Colors.amber;
+        return AppConstant.colorPriorityHigh;
         break;
       case 3:
-        return Colors.lime;
+        return AppConstant.colorPriorityMedium;
+        break;
+      case 4:
+        return AppConstant.colorPriorityLow;
         break;
 
       default:
-        return Colors.lime;
+        return AppConstant.colorPriorityLow;
     }
   }
 

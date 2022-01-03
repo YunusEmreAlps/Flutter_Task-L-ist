@@ -1,7 +1,12 @@
-import 'package:sqflite/sqflite.dart';
+// Dart imports:
 import 'dart:async';
 import 'dart:io';
+
+// Package imports:
 import 'package:path_provider/path_provider.dart';
+import 'package:sqflite/sqflite.dart';
+
+// Project imports:
 import 'package:taskist/model/todo.dart';
 
 class DbHelper {

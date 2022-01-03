@@ -1,7 +1,16 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:taskist/model/todo.dart';
-import 'package:taskist/util/dbhelper.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+// Package imports:
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:taskist/model/my_theme_provider.dart';
+
+// Project imports:
+import 'package:taskist/model/todo.dart';
+import 'package:taskist/util/app_constant.dart';
+import 'package:taskist/util/dbhelper.dart';
 
 DbHelper helper = DbHelper();
 
@@ -15,7 +24,7 @@ class TodoDetail extends StatefulWidget {
 
 class TodoDetailState extends State<TodoDetail> {
   Todo todo;
-  final _priorities = ["High", "Medium", "Low"];
+  final _priorities = ["Urgent", "High", "Medium", "Low"];
   String _priority = "Low";
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
@@ -35,43 +44,33 @@ class TodoDetailState extends State<TodoDetail> {
   Widget build(BuildContext context) {
     TextStyle textStyle = TextStyle(
       fontSize: 16.0,
-      color: Colors.black54,
-      fontWeight: FontWeight.w600,
+      fontFamily: 'Manrope', // Manrope
+      color: Color(0xFF767B83),
+      fontWeight: FontWeight.w400,
     );
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      backgroundColor: Colors.indigoAccent,
+      appBar: appBarWidget(context),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 0.0),
         child: Column(
           children: <Widget>[
-            Text(
-              isEdit ? "Edit the plan" : "Add the plan",
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20.0,
-                  color: Colors.white),
-            ),
-            SizedBox(
-              height: 40.0,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
-              child: Text(
-                "Fill the form below, plan something creative and worth doing. ",
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15.0,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 30.0),
               decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(15.0),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 4),
+                    blurRadius: 20,
+                    color: Color(0xFFB0CCE1).withOpacity(0.32),
+                  ),
+                ],
+              ),
+
+              /*decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 color: Colors.white,
                 boxShadow: [
@@ -81,7 +80,7 @@ class TodoDetailState extends State<TodoDetail> {
                       spreadRadius: -5.0,
                       offset: Offset(0.0, 7.0)),
                 ],
-              ),
+              ),*/
               width: 320.0,
               height: 370.0,
               child: Padding(
@@ -91,6 +90,9 @@ class TodoDetailState extends State<TodoDetail> {
                   key: _formKey,
                   child: ListView(
                     children: <Widget>[
+                      SizedBox(
+                        height: 20.0,
+                      ),
                       TextFormField(
                           maxLength: 30,
                           onSaved: (value) {
@@ -110,6 +112,7 @@ class TodoDetailState extends State<TodoDetail> {
                           style: textStyle,
                           decoration: InputDecoration(
                             hintText: 'Title',
+                            hintStyle: textStyle,
                             contentPadding:
                                 EdgeInsets.symmetric(vertical: 15.0),
                             labelStyle: textStyle,
@@ -124,6 +127,7 @@ class TodoDetailState extends State<TodoDetail> {
                           style: textStyle,
                           decoration: InputDecoration(
                             hintText: 'Specific content',
+                            hintStyle: textStyle,
                             contentPadding:
                                 EdgeInsets.symmetric(vertical: 15.0),
                             labelStyle: textStyle,
@@ -131,6 +135,7 @@ class TodoDetailState extends State<TodoDetail> {
                       InputDecorator(
                         decoration: InputDecoration(
                           labelText: 'Priority',
+                          labelStyle: textStyle,
                           contentPadding: EdgeInsets.zero,
                         ),
                         child: DropdownButtonHideUnderline(
@@ -156,7 +161,7 @@ class TodoDetailState extends State<TodoDetail> {
                         padding: EdgeInsets.all(13.0),
                         elevation: 2.0,
                         textColor: Colors.white,
-                        color: Colors.amber,
+                        color: AppConstant.colorPrimary,
                         onPressed: () => save(),
                         child: Text(
                           isEdit ? "Edit" : "Add",
@@ -179,14 +184,46 @@ class TodoDetailState extends State<TodoDetail> {
                 confirmDelete();
               },
               elevation: 5.0,
-              backgroundColor: Colors.red,
+              backgroundColor: AppConstant.colorDelete,
               tooltip: "Cancel",
-              child: new Icon(
-                Icons.clear,
-                size: 35.0,
-              ))
+              child: new Icon(Icons.clear, size: 35.0, color: Colors.white))
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+
+  //
+  AppBar appBarWidget(BuildContext context) {
+    return AppBar(
+      centerTitle: true,
+      title: Text(
+        isEdit ? "Edit Task" : "New Task",
+        style: TextStyle(
+          color: Theme.of(context).accentColor,
+          fontSize: 20, // 22
+          fontFamily: 'Manrope', // Manrope
+          letterSpacing: 2,
+        ),
+      ),
+      actions: [themeModeButton(context)],
+    );
+  }
+
+  // Light-Dark
+  Padding themeModeButton(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Consumer<MyThemeModel>(
+        builder: (context, theme, child) => InkWell(
+          onTap: () => theme.changeTheme(),
+          child: SvgPicture.asset(
+            theme.isLightTheme ? AppConstant.svgSun : AppConstant.svgMoon,
+            height: 22,
+            width: 22,
+            color: AppConstant.colorPrimary,
+          ),
+        ),
+      ),
     );
   }
 
@@ -194,25 +231,25 @@ class TodoDetailState extends State<TodoDetail> {
     showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-            title: Text("Are you sure about deleting this todo?",
-                style: TextStyle(fontSize: 15.0)),
-            actions: <Widget>[
-              new FlatButton(
-                  child: new Text('CANCEL'),
-                  onPressed: () => Navigator.of(context).pop()),
-              new FlatButton(
-                  child: new Text(
-                    'DELETE',
-                    style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold),
-                  ),
-                  onPressed: () {
-                    helper.deleteTodo(todo.id);
-                    Navigator.of(context).pop();
-                    Navigator.pop(context, true);
-                  })
-            ],
-          ),
+        title: Text("Are you sure about deleting this task?",
+            style: TextStyle(fontSize: 15.0)),
+        actions: <Widget>[
+          new FlatButton(
+              child: new Text('CANCEL'),
+              onPressed: () => Navigator.of(context).pop()),
+          new FlatButton(
+              child: new Text(
+                'DELETE',
+                style:
+                    TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              ),
+              onPressed: () {
+                helper.deleteTodo(todo.id);
+                Navigator.of(context).pop();
+                Navigator.pop(context, true);
+              })
+        ],
+      ),
     );
   }
 
@@ -232,14 +269,17 @@ class TodoDetailState extends State<TodoDetail> {
 
   void updatePriority(String value) {
     switch (value) {
-      case 'High':
+      case 'Urgent':
         todo.priority = 1;
         break;
-      case 'Medium':
+      case 'High':
         todo.priority = 2;
         break;
-      case 'Low':
+      case 'Medium':
         todo.priority = 3;
+        break;
+      case 'Low':
+        todo.priority = 4;
         break;
     }
 

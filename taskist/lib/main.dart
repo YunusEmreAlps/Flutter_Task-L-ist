@@ -1,14 +1,20 @@
 // Task-L-ist
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taskist/size_config.dart';
 import 'package:provider/provider.dart';
-import 'package:taskist/theme.dart';
+
+// Project imports:
+import 'package:taskist/model/my_theme_provider.dart';
 import 'package:taskist/screens/todolist.dart';
+import 'package:taskist/size_config.dart';
+import 'package:taskist/theme.dart';
 import 'package:taskist/ui/simple_app_bar.dart';
 import 'package:taskist/util/app_constant.dart';
-import 'package:taskist/model/my_theme_provider.dart';
 
 void main() {
   // MaterialPageRoute.debugEnableFadingRoutes = true;
@@ -53,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: buildAppBar(context),
+      appBar: appBarWidget(context),
       body: Column(
         children: <Widget>[
           Expanded(child: TodoList()),
@@ -62,23 +68,25 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  AppBar buildAppBar(BuildContext context) {
+  // Task Manager
+  AppBar appBarWidget(BuildContext context) {
     return AppBar(
       centerTitle: true,
       title: Text(
         AppConstant.appName,
         style: TextStyle(
           color: Theme.of(context).accentColor,
-          fontSize: 22, // 22
-          fontFamily: 'Manrope',
+          fontSize: 20, // 22
+          fontFamily: 'Manrope', // Manrope
           letterSpacing: 2,
         ),
       ),
-      actions: [buildAddButton(context)],
+      actions: [themeModeButton(context)],
     );
   }
 
-  Padding buildAddButton(BuildContext context) {
+  // Light-Dark
+  Padding themeModeButton(BuildContext context) {
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: 20),
@@ -87,11 +95,11 @@ class _MyHomePageState extends State<MyHomePage> {
           onTap: () => theme.changeTheme(),
           child: SvgPicture.asset(
             theme.isLightTheme
-                ? "assets/icons/sun.svg"
-                : "assets/icons/moon.svg",
+                ? AppConstant.svgSun
+                : AppConstant.svgMoon,
             height: 22,
             width: 22,
-            color: Color(0xFFFF97B3),
+            color: AppConstant.colorPrimary, 
           ),
         ),
       ),
