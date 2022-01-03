@@ -125,18 +125,18 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Light             | Dark             | Light              | Dark
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/1.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/2.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/3.png?raw=true)|![](hhttps://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/4.png?raw=true)|
+![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/1.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/2.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/3.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/4.png?raw=true)|
 
 Light             | Dark             | Light              | Dark
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/5.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/6.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/7.png?raw=true)|![](hhttps://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/8.png?raw=true)|
+![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/5.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/6.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/7.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/8.png?raw=true)|
 
 Light             | Dark             | Light              | Dark
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/9.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/10.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/11.png?raw=true)|![](hhttps://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/12.png?raw=true)|
+![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/9.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/10.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/11.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/12.png?raw=true)|
 
 Light             | Dark             | Light              | Dark
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/13.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/14.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/15.png?raw=true)|![](hhttps://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/16.png?raw=true)|
+![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/13.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/14.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/15.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_Task-L-ist/blob/master/taskist/ss/16.png?raw=true)|
 
 
