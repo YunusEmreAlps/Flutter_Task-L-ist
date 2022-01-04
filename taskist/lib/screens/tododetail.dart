@@ -1,13 +1,13 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 // Package imports:
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:taskist/model/my_theme_provider.dart';
 
 // Project imports:
+import 'package:taskist/model/my_theme_provider.dart';
 import 'package:taskist/model/todo.dart';
 import 'package:taskist/util/app_constant.dart';
 import 'package:taskist/util/dbhelper.dart';

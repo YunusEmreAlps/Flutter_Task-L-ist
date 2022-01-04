@@ -38,13 +38,13 @@ ThemeData darkThemeData(BuildContext context) {
   return ThemeData.dark().copyWith(
     primaryColor: AppConstant.colorPrimary,
     accentColor: AppConstant.kAccentDarkColor,
-    scaffoldBackgroundColor: Color(0xFF1f1d2b), // Color(0xFF0D0C0E), Color(0xFF121212)
+    scaffoldBackgroundColor: AppConstant.colorDarkTheme, // Color(0xFF1f1d2b), // Color(0xFF0D0C0E), Color(0xFF121212)
     appBarTheme: appBarTheme,
     colorScheme: ColorScheme.light(
       secondary: AppConstant.kSecondaryDarkColor,
       surface: AppConstant.kSurfaceDarkColor,
     ),
-    backgroundColor: Color(0xFF1f1d2b),
+    backgroundColor: AppConstant.colorDarkTheme,
     iconTheme: IconThemeData(color: AppConstant.kBodyTextColorDark),
     accentIconTheme: IconThemeData(color: AppConstant.kAccentIconDarkColor),
     primaryIconTheme: IconThemeData(color: AppConstant.kPrimaryIconDarkColor),

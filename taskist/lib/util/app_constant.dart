@@ -17,6 +17,7 @@ class AppConstant {
   static const Color colorGreyIcon = Color(0xFFE2E6EB);
   static const Color colorGreyLight = Color(0xffEEEFF1);
   static final Color colorDarkGrey = Color(0xFF7B8BB2);
+  static final Color colorDarkTheme = Color(0xFF1F1D2B);
 
 // Icon Colors
   static final Color kAccentIconLightColor = Color(0xFFECEFF5);
